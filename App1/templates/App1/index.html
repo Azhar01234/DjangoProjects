@@ -1,16 +1,17 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Flights title</title>
-    </head>
-    <body>
-        <h1>Flights body</h1>
-        <ul>
-            {% for flight in flights %}
-                <li>
-                    {{ flight }}
-                </li>
-            {% endfor %}    
-        <ul>
-    </body>
-</html>
+{% extends "App1/base.html" %}
+
+{% block title %}
+    Flights 
+{% endblock %}
+
+{%block body%}
+    <h1> Flights </h1>
+    <ul>
+        {% for flight in flights %}
+            <li>
+            <a href="{% url 'flight' flight.id %}"> {{ flight }} </a>
+                                  <!--^argiment to pass into url -->
+            </li>
+        {% endfor %}    
+    <ul>
+{%endblock%}
